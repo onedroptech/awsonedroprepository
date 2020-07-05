@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * Basic Spring MVC controller that handles all GET requests.
  */
 @Controller
-@RequestMapping("/")
 public class HelloWorldController {
 
 	@Autowired
@@ -28,7 +27,7 @@ public class HelloWorldController {
         this.siteName = siteName;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(path="/" ,method = RequestMethod.GET)
     public ModelAndView helloWorld() {
         ModelAndView mav = new ModelAndView("index");
         mav.addObject("siteName", this.siteName);
