@@ -20,21 +20,24 @@ public class HelloWorldController {
 
 	@Autowired
 	OtpResponseVo otpResp;
-	
-    private final String siteName;
+	public String siteName = "Sample App";
+	/*
+    private final String siteName;**/
 
     public HelloWorldController(final String siteName) {
         this.siteName = siteName;
     }
 
-    @RequestMapping(path="/" ,method = RequestMethod.GET)
+	
+	
+    @RequestMapping(path="/viewpage" ,method = RequestMethod.GET)
     public ModelAndView helloWorld() {
         ModelAndView mav = new ModelAndView("index");
         mav.addObject("siteName", this.siteName);
         return mav;
     }
 
-    @PostMapping(path="/getsms")
+    @RequestMapping(path="/getsms",method = RequestMethod.POST)
 	public OtpResponseVo getsms(@RequestBody String inputData) 
 	{
 		System.out.println("getsms api controller with : "+inputData);
@@ -42,7 +45,7 @@ public class HelloWorldController {
 		otpResp.setMessage("SUCCESS");
 		return otpResp;
 	}
-	@PostMapping(path="/submitlogin")
+    @RequestMapping(path="/submitlogin",method = RequestMethod.POST)
 	public OtpResponseVo otpValidation(@RequestBody String inputData) throws Exception 
 	{
 		System.out.println("getsms api controller with : "+inputData);
