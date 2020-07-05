@@ -24,9 +24,9 @@ public class HelloWorldController {
 	/*
     private final String siteName;**/
 
-    public HelloWorldController(final String siteName) {
+  /*  public HelloWorldController(final String siteName) {
         this.siteName = siteName;
-    }
+    }*/
 
 	
 	
